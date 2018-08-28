@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="angular-1.7.3/angular.min.js"></script>
+<script>	
+        var app = angular.module('myApp', []);
+		
+        app.controller('myCtrl', function($scope, $http) {
+            $http.get("http://localhost:3001/view")
+            .then(function(response) {
+                $scope.myWelcome = response.data;
+            });
+        });
+	</script>
+</head>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl">
+	<pre>{{myWelcome}}</pre>
+</div>	
+	
+</body>
+</html>

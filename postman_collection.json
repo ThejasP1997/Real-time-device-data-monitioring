@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "7366352d-6fa0-48b7-9e4e-127f1cd31c29",
+		"name": "guru2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3001/insert?name={{name}}&id={{id}}&email={{email}}&phone={{phone}}",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "d83aebf9-99bd-4045-a61f-c1a370e5de53",
+						"type": "text/javascript",
+						"exec": [
+							"",
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "6a321f94-ecf9-4aba-8ddc-447b16d2bedf",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "name",
+						"value": "guru"
+					},
+					{
+						"key": "id",
+						"value": "1"
+					},
+					{
+						"key": "email",
+						"value": "fghtr"
+					},
+					{
+						"key": "phone",
+						"value": "0000000"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3001/insert?name={{name}}&id={{id}}&email={{email}}&phone={{phone}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"insert"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "{{name}}"
+						},
+						{
+							"key": "id",
+							"value": "{{id}}"
+						},
+						{
+							"key": "email",
+							"value": "{{email}}"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "1c76e845-d656-47c2-9241-1f42d98751ce",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "19bc5693-8f86-4f3a-ba8d-698d093a82e6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "3ebfc421-2dad-4a2c-863a-233369eaacfe",
+			"key": "url",
+			"value": "localhost:3001",
+			"type": "string"
+		},
+		{
+			"id": "abe4d408-b311-4e67-8229-01f3a11a8073",
+			"key": "id",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"id": "1132d4d4-22cd-4c36-b6a2-1b8b7014a335",
+			"key": "name",
+			"value": "guru",
+			"type": "string"
+		},
+		{
+			"id": "c3c3de3b-76dd-4a7b-814b-883a340368c5",
+			"key": "email",
+			"value": "brguru90@gmail.com",
+			"type": "string"
+		},
+		{
+			"id": "0f9f8dc5-5c00-42aa-87e5-9ee93fdd153d",
+			"key": "phone",
+			"value": "9482399078",
+			"type": "string"
+		}
+	]
+}

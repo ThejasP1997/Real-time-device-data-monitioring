@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<body>
+<head>
+    <title>Home</title>
+    <style>
+
+        table *{
+            border:solid silver 1px;
+        }
+        table{
+            width:100%;
+            border:solid green 2px;
+        }
+        table{
+            color:mediumblue;
+        }
+        table .head *{
+            color:mediumvioletred;
+        }
+
+    </style>
+</head>
+<h1>Getting server updates</h1>
+<div id="result"></div>
+
+<script>
+    var list=new Array("-,-,-");
+     function add(data)
+     {
+         //alert(data);
+        var str="",len=list.length,i=0;
+        if(len>=10)
+           len=10;
+        str="<table><tr class='head'><caption>"+list.length+"</caption><th>Device id</th><th>temperature</th><th>humidity</th></tr>";
+        var a="<tr><td>",b="</td><td>",c="</td></tr>";    
+        for(i=0;i<len-1;i++)
+        {
+            if(len>=10)
+                list[i]=list[i+1];
+            str+=a+list[i].split(",")[2]+b+list[i].split(",")[0]+b+list[i].split(",")[1]+"-"+i+c;
+        }
+        if(len>=10)
+            len--;
+        list[len]=data;
+        str+=a+list[i].split(",")[2]+b+list[i].split(",")[0]+b+list[i].split(",")[1]+"-"+i+c;
+        str+="</table>";
+        return str;
+     }
+if(typeof(EventSource) !== "undefined") {
+    var source = new EventSource("http://localhost:3001/view");
+    source.onmessage = function(event) {
+        ;
+        //document.getElementById("result").innerHTML += event.data + "<br>";
+        document.getElementById("result").innerHTML =add(event.data);
+    };
+} else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support server-sent events...";
+}
+</script>
+
+</body>
+</html>
